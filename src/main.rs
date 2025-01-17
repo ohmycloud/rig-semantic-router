@@ -21,7 +21,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bee_answer = router
         .query("how many flowers does a bee visit in a day?")
         .await?;
-    println!("Topic: {}", bee_answer.topic);
+    println!(
+        "Topic: {}, content: {}",
+        bee_answer.topic, bee_answer.content
+    );
 
     // note that this query *should* error out as it's unrelated
     // in which case, we simply tell the user we can't help them
